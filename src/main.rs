@@ -1,6 +1,3 @@
-#![warn(while_true)]
-use std::{thread::sleep, time::Duration};
-
 use rand::Rng;
 use rusty_engine::prelude::*;
 
@@ -11,15 +8,6 @@ struct GameState {
     spawn_timer: Timer,
 }
 
-fn f64_to_f32(x: f64) -> f32 {
-    let y = x as f32;
-    assert_eq!(
-        x.is_finite(),
-        y.is_finite(),
-        "f32 overflow during conversion"
-    );
-    y
-}
 impl Default for GameState {
     fn default() -> Self {
         return Self {
